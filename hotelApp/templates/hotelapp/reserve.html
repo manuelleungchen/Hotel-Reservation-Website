@@ -1,0 +1,25 @@
+{% extends 'hotelApp/base.html' %}
+
+{% load widget_tweaks %}
+
+{% block content %}
+
+<div class="container mt-5">
+    <div class="row offset-sm-4">
+
+        <form method="post" novalidate class="form-group col-sm-6">
+            {% csrf_token %}
+            {% for field in form.visible_fields %}
+
+            <div class="row mb-3">
+                {{ field.label_tag }}
+                {% render_field field class="form-control" %}
+            </div>
+            {% endfor %}
+            <button type="submit" class="btn btn-lg btn-primary btn-block mt-2">Reserve</button>
+        </form>
+    </div>
+
+</div>
+
+{% endblock %}

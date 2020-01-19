@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <title>Maple Hotel Login</title>
+
+  {% load static %}
+  {% load widget_tweaks %}
+
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
+  <!-- Bootstrap core CSS -->
+
+  <style>
+    #body-gradient-color {
+      background: linear-gradient(to top, #ff9999 0%, #ff9966 100%);
+      height: 100%;
+    }
+
+    html {
+      height: 100%;
+    }
+
+    body {
+      height: 100%;
+      margin: 0;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+    
+  </style>
+  <!-- Custom styles for this template -->
+  <link href="signin.css" rel="stylesheet">
+</head>
+
+<body class="text-center" id="body-gradient-color">
+
+  <div class="container mt-5">
+
+    <div class="text-center mb-4">
+      <h1 class="mb-3 font-weight-bold">Maple Hotel</h1>
+      <img class="mb-2" src="{% static 'Maple.png' %}" alt="" width="150" height="150">
+    </div>
+
+    <div class="row">
+      <div class="col-md-4 offset-md-4">
+        <form method="post" novalidate class="form-group">
+          {% csrf_token %}
+          <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+
+          {% for field in form.visible_fields %}
+          {% render_field field class="form-control" placeholder=field.label %}
+          {% endfor %}
+          <!-- <div class="checkbox mb-3">
+            <label>
+              <input type="checkbox" value="remember-me"> Remember me
+            </label>
+          </div> -->
+          <p>Don't have an account? Create one <a href="/register">Here</a></p>
+          <button type="submit" class="btn btn-lg btn-primary btn-block">Sign in</button>
+          <p class="mt-5 mb-3 text-muted">&copy; 2019-2020</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

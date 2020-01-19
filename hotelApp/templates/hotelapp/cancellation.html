@@ -1,0 +1,38 @@
+{% extends 'hotelApp/base.html' %}
+{% load widget_tweaks %}
+{% block content %}
+
+<div class="container mt-5 text-center">
+  <form method="post">
+    {% csrf_token %}
+    <div class="form-row">
+      <div class="alert alert-success col-sm-6 offset-sm-3">
+        <div>
+          <spam>Room costs per night</spam>
+          <strong>: &#36;{{ cost }}</strong>
+        </div>
+        <div>
+          <spam>Booked for</spam>
+          <strong>: {{ days }} days</strong>
+        </div>
+        <div>
+          <spam>Total Cost</spam>
+          <strong>: &#36;{{ totalCost }}</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="alert alert-warning col-sm-6 offset-sm-3">
+      {{ object.guest.first_name }}, are you sure you want to delete reservation of room {{ object.room.unitNumber }}?
+    </div>
+
+    <button type="submit" class="btn btn-danger">
+      <span class="fas fa-trash-alt"></span>
+
+    </button>
+
+  </form>
+
+</div>
+
+{% endblock %}

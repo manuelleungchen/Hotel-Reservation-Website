@@ -1,0 +1,84 @@
+{% extends 'hotelApp/base.html' %}
+{% block content %}
+
+<div class="container text-center">
+
+    <h1 class="jumbtron">
+        Book A Room
+    </h1>
+
+    <div class="row">
+        {% for floor in floor_4 %}
+        <div class="text-center d-inline-block my-1 col-sm-3 col-md-2 col-lg-1">
+            {% if floor.available == False %}
+            <a href="" class="btn btn-danger disabled btn-block">
+                <p>{{ floor.unitNumber }}</p>
+                <span class="fas fa-bed"></span>
+            </a>
+            {% else %}
+            <a href="{% url 'reserve' floor.pk %}" class="btn btn-success btn-block">
+                <p>{{ floor.unitNumber }}</p>
+                <span class="fas fa-book"></span>
+            </a>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+    <div class="row">
+        {% for floor in floor_3 %}
+        <div class="text-center d-inline-block my-1 col-sm-3 col-md-2 col-lg-1">
+            {% if floor.available == False %}
+            <a href="" class="btn btn-danger disabled btn-block">
+                <p>{{ floor.unitNumber }}</p>
+                <span class="fas fa-bed"></span>
+            </a>
+            {% else %}
+            <a href="{% url 'reserve' floor.pk %}" class="btn btn-success btn-block">
+                <p>{{ floor.unitNumber }}</p>
+                <span class="fas fa-book"></span>
+            </a>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="row">
+        {% for floor in floor_2 %}
+        <div class="text-center d-inline-block my-1 col-sm-3 col-md-2 col-lg-1">
+            {% if floor.available == False %}
+            <a href="" class="btn btn-danger disabled btn-block">
+                <p>{{ floor.unitNumber }}</p>
+                <span class="fas fa-bed"></span>
+            </a>
+            {% else %}
+            <a href="{% url 'reserve' floor.pk %}" class="btn btn-success btn-block">
+                <p>{{ floor.unitNumber }}</p>
+                <span class="fas fa-book"></span>
+            </a>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="row">
+        {% for floor in floor_1 %}
+        <div class="text-center d-inline-block my-1 col-sm-3 col-md-2 col-lg-1">
+            {% if floor.available == False %}
+            <a href="" class="btn btn-danger disabled btn-block">
+                <p>{{ floor.unitNumber }}</p>
+                <span class="fas fa-bed"></span>
+            </a>
+            {% else %}
+            <a href="{% url 'reserve' floor.pk %}" class="btn btn-success btn-block">
+                <p>{{ floor.unitNumber }}</p>
+                <span class="fas fa-book"></span>
+            </a>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+    <br>
+
+
+
+    {% endblock %}

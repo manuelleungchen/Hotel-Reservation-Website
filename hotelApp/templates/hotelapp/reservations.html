@@ -1,0 +1,38 @@
+{% extends 'hotelApp/base.html' %}
+{% block content %}
+
+
+<div class="container text-center mt-5">
+
+    <h1>Welcome back, {{user.first_name}}</h1>
+
+    {% if reservations %}
+
+    <h3>Current reservations</h3>
+
+    {% for reservation in reservations %}
+    <div class="text-center d-inline-block my-1 col-sm-3 col-md-2 col-lg-1">
+        <a href="{% url 'cancel' reservation.pk %}" class="btn btn-primary btn-block">
+            <!-- <button type="submit" class="btn btn-primary btn-block"> -->
+            <p>{{ reservation.room.unitNumber }}</p>
+            <span class="fas fa-calendar-check"></span>
+            <!-- </button> -->
+        </a>
+    </div>
+
+    {% endfor %}
+
+    {% else %}
+    <div class="text-center d-inline-block my-1">
+        <div class="alert alert-primary">
+            You do not have any reservations.
+        </div>
+    </div>
+
+    {% endif %}
+
+</div>
+
+
+
+{% endblock %}

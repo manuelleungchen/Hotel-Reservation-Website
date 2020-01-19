@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {% load static %}
+
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <script src="https://kit.fontawesome.com/9d37cfa12d.js" crossorigin="anonymous"></script>
+
+    <title>Maple Hotel</title>
+
+    <style>
+        #body-gradient-color {
+            background: linear-gradient(to top, #ff9999 0%, #ff9966 100%);
+            height: 100%;
+
+        }
+
+        html {
+            height: 100%;
+        }
+
+        body {
+            height: 100%;
+            margin: 0;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+    </style>
+
+</head>
+
+<body id="body-gradient-color">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+
+        <div class="container">
+            <!-- Brand/logo -->
+            <span class="navbar-brand fab fa-canadian-maple-leaf"> Maple Hotel</span>
+            <span class="text-muted">Signed as {{user.last_name}}, {{user.first_name}}</span>
+
+            <!-- Links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'rooms' %}">Reserve</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'reservations' %}">Reservations</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    {% if user.is_authenticated %}
+
+    {% block content %}
+    {% endblock %}
+
+    {% else %}
+    <h3>You haven't sign properly, please Login <a href="/login">Here</a></h3>
+
+    {% endif %}
+
+    <script src="{% static 'jquery-3.4.1.min.js' %}"></script>
+    <script src="{% static 'popper.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+
+</body>
+
+</html>
